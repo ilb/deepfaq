@@ -1,7 +1,7 @@
 import unittest
 import shutil
 
-from deeppavlov_faq_bot.faqbot import FaqBot, ModelNotFoundException, CreateBotException
+from webapp.services.deeppavlov_faq_bot.faqbot import FaqBot, ModelNotFoundException, CreateBotException
 
 
 class MyTestCase(unittest.TestCase):
@@ -11,7 +11,7 @@ class MyTestCase(unittest.TestCase):
             bot = FaqBot("")
 
     def test_empty_model_list(self):
-        path = "../FAQBot_work_dir/"
+        path = "../FAQBot_work_dir_1/"
         bot = FaqBot(path)
 
         with self.assertRaises(ModelNotFoundException):
@@ -27,7 +27,7 @@ class MyTestCase(unittest.TestCase):
         shutil.rmtree(path)
 
     def test_model_create(self):
-        path = "../FAQBot_work_dir/"
+        path = "../FAQBot_work_dir_2/"
         model_name = "faq"
         bot = FaqBot(path)
         bot.add_data_to_model(model_name, "Декан", "Шашкин Александр Иванович")

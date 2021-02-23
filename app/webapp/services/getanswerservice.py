@@ -1,16 +1,17 @@
 """
 get answer service
 """
-from deeppavlov_faq_bot import faqbot
+from webapp.services.deeppavlov_faq_bot.faqbot import FaqBot
 
 
-class AnswerService:
+class GetAnswer:
 
-    def __init__(self, work_dir: str):
-        self.work_dir = work_dir
+    def __init__(self, faq_bot: FaqBot):
+        self.faq_bot = faq_bot
 
     def get_answer(self, model, question: str):
-        bot = faqbot.FaqBot(self.work_dir)
+        # bot = faqbot.FaqBot(self.work_dir)
+        bot = self.faq_bot
         answer, probability = bot.ask_model(model, question)
         ans = {"answer": answer[0], "probability": probability[0]}
         return ans

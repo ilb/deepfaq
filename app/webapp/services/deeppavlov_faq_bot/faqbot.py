@@ -10,7 +10,7 @@ You need to train the model after new data is added to it (train_model(model nam
 from deeppavlov import train_model, build_model
 import json
 
-from deeppavlov_faq_bot.utils.file_utils import BotFilesUtil
+from webapp.services.deeppavlov_faq_bot.utils.file_utils import BotFilesUtil
 
 
 class CreateBotException(Exception):

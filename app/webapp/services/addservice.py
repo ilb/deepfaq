@@ -11,19 +11,20 @@ add answers service
     ]
 }
 """
-from deeppavlov_faq_bot import faqbot
+from webapp.services.deeppavlov_faq_bot.faqbot import FaqBot
 
 from webapp.services.errors import DataParseException
 
 
-class AddDataService:
+class AddTrainData:
 
-    def __init__(self, work_dir: str):
-        self.work_dir = work_dir
+    def __init__(self, faq_bot: FaqBot):
+        self.faq_bot = faq_bot
 
     def add_data(self, json_data):
         try:
-            bot = faqbot.FaqBot(self.work_dir)
+            # bot = faqbot.FaqBot(self.work_dir)
+            bot = self.faq_bot
             model_name = json_data["model"]
             input_arr = list()
             for faq in json_data["faq"]:

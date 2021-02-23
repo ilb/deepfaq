@@ -3,14 +3,14 @@ import inject
 from bottle import request, Bottle, HTTPResponse
 from webapp.services.errors import DataParseException
 
-from webapp.services.addservice import AddDataService
+from webapp.services.addservice import AddTrainData
 
 add_d = Bottle()
 
 
 @add_d.post("/")
 @inject.autoparams()
-def add_data(add_data_service: AddDataService) -> HTTPResponse:
+def add_data(add_data_service: AddTrainData) -> HTTPResponse:
     try:
         json_object = json.load(request.body)
         add_data_service.add_data(json_object)

@@ -1,9 +1,0 @@
-name: deeppavlov_faq_bot
-dependencies:
-  - python=3.7
-  - requests
-  - pip
-  - pip:
-    - setuptools
-    - wheel
-    - deeppavlov

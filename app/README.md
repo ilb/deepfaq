@@ -3,9 +3,8 @@ FAQ bot web app based on Bottle
 
 Install deps:
 ----------
-before command install lib deep_pavlov_faq_bot (see library/readme.md) 
 ```shell script
-python setup.py develop
+pip install -e .[dev]
 ```
 
 
@@ -36,4 +35,4 @@ Run package:
 /usr/bin/python3.8.5/bin/webapp
 ```
 
-You can check it running on `http://localhost:5005/`
+You can check it running on `http://localhost:5005/swagger/`

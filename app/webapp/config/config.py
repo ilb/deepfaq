@@ -1,8 +1,9 @@
 import inject
 from inject import Binder
 
-from webapp.services.answerservice import AnswerService
-from webapp.services.addservice import AddDataService
+from webapp.services.getanswer import GetAnswer
+from webapp.services.addservice import AddTrainData
+from webapp.services.deeppavlov_faq_bot.faqbot import FaqBot
 
 
 def init() -> None:
@@ -10,8 +11,8 @@ def init() -> None:
 
 
 def build_container(binder: Binder) -> Binder:
-    binder.bind(AnswerService, AnswerService(work_dir()))
-    binder.bind(AddDataService, AddDataService(work_dir()))
+    binder.bind(GetAnswer, GetAnswer(bot))
+    binder.bind(AddTrainData, AddTrainData(bot))
     return binder
 
 
@@ -25,3 +26,6 @@ def port() -> int:
 
 def work_dir() -> str:
     return "../FAQBot_work_dir/"
+
+
+bot = FaqBot(work_dir())

@@ -2,14 +2,14 @@ import json
 import inject
 from bottle import request, Bottle, HTTPResponse
 
-from webapp.services.answerservice import AnswerService
+from webapp.services.getanswer import GetAnswer
 
 answer = Bottle()
 
 
 @answer.post("/")
 @inject.autoparams()
-def get_answer(answer_service: AnswerService) -> HTTPResponse:
+def get_answer(answer_service: GetAnswer) -> HTTPResponse:
     try:
         json_object = json.load(request.body)
         model = (json_object['model'])

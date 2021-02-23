@@ -5,7 +5,8 @@ app_dependencies = [
     "gunicorn==20.0.4",
     "inject==4.0.0",
     "requests>=2.0.0",
-    "bottle-swagger-2==2.0.8"
+    "bottle-swagger-2==2.0.8",
+    "deeppavlov~=0.14.0"
 ]
 
 dev_dependencies = [
@@ -20,6 +21,7 @@ setup(
     author="kvadro",
     author_email="mail@gmail.com",
     packages=find_packages(),
+    package_data={'': ['*.json', '*.pkl', "*.yml"]},
     python_requires=">=3.6",
     install_requires=app_dependencies,
     extras_require={"dev": dev_dependencies, },
