@@ -2,10 +2,11 @@
 get answer service
 """
 from webapp.services.deeppavlov_faq_bot.faqbot import FaqBot
+import inject
 
 
 class GetAnswer:
-
+    @inject.autoparams()
     def __init__(self, faq_bot: FaqBot):
         self.faq_bot = faq_bot
 

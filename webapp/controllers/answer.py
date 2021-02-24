@@ -2,7 +2,7 @@ import json
 import inject
 from bottle import request, Bottle, HTTPResponse
 
-from webapp.services.getanswer import GetAnswer
+from webapp.services.getanswerservice import GetAnswer
 
 answer = Bottle()
 

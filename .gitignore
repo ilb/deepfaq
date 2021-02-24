@@ -51,6 +51,7 @@ FAQBot_work_dir
 /FAQBot_work_dir
 .pyc
 .pytest_cache
+pytest_cache
 # Translations
 *.mo
 *.pot

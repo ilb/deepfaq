@@ -11,13 +11,13 @@ add answers service
     ]
 }
 """
+import inject
 from webapp.services.deeppavlov_faq_bot.faqbot import FaqBot
-
 from webapp.services.errors import DataParseException
 
 
 class AddTrainData:
-
+    @inject.autoparams()
     def __init__(self, faq_bot: FaqBot):
         self.faq_bot = faq_bot
 
