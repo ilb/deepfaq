@@ -1,0 +1,126 @@
+openapi: 3.0.2
+info:
+  title: Fast API
+  version: 0.1.0
+servers:
+  - url: 'http://127.0.0.1:5005/webapp'
+    description: local dev server
+paths:
+  /answer/:
+    post:
+      summary: Get Answer
+      operationId: get_answer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Question'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Answer'
+        '450':
+          description: JSON Parse error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONValidationError'
+        '550':
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONValidationError'
+  /add/:
+    post:
+      summary: Add date for model
+      operationId: add_data
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewData'
+        required: true
+
+      responses:
+        '200':
+          description: Successful Response
+
+        '450':
+          description: JSON Parse error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONValidationError'
+
+        '550':
+          description: System error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONValidationError'
+
+components:
+  schemas:
+    Answer:
+      title: Answer
+      required:
+        - answer
+        - probability
+      type: object
+      properties:
+        answer:
+          title: answer
+          type: string
+        probability:
+          title: probability
+          type: string
+
+    NewData:
+      title: NewData
+      required:
+        - model
+        - faq
+      type: object
+      properties:
+        model:
+          title: answer
+          type: string
+        faq:
+          title: faq
+          type: array
+          items:
+            type: object
+            properties:
+              q:
+                type: array
+                items:
+                  type: string
+              a:
+                type: string
+
+    JSONValidationError:
+      title: JSONValidationError
+      required:
+        - error
+      type: object
+      properties:
+        error:
+          type: string
+    Question:
+      title: Question
+      required:
+        - model
+        - q
+      type: object
+      properties:
+        model:
+          title: Model
+          type: string
+        q:
+          title: Q
+          type: string
