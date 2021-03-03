@@ -9,7 +9,7 @@ app = Bottle()
 
 
 @app.post("/")
-@inject.autoparams('faq_bot', 'add_data_service')
+@inject.autoparams()
 def train(add_data_service: AddTrainData) -> HTTPResponse:
     try:
         json_object = json.load(request.body)
