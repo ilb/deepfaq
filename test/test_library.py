@@ -1,7 +1,7 @@
 import unittest
 import shutil
 
-from webapp.services.deeppavlov_faq_bot.faqbot import FaqBot, ModelNotFoundException, CreateBotException
+from deepfaq.services.deeppavlov_faq_bot.faqbot import FaqBot, ModelNotFoundException, CreateBotException
 
 
 class MyTestCase(unittest.TestCase):

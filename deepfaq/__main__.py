@@ -2,9 +2,9 @@ import os
 import sys
 import yaml
 from bottle import Bottle
-from webapp.config import config
-from webapp.controllers.answer import answer
-from webapp.controllers.adddata import add_d
+from deepfaq.config import config
+from deepfaq.controllers.answer import answer
+from deepfaq.controllers.adddata import add_d
 
 from bottle_swagger import SwaggerPlugin
 

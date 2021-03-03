@@ -1,7 +1,7 @@
 """
 get answer service
 """
-from webapp.services.deeppavlov_faq_bot.faqbot import FaqBot
+from deepfaq.services.deeppavlov_faq_bot.faqbot import FaqBot
 import inject
 
 

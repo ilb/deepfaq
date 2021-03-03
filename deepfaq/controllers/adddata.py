@@ -1,9 +1,9 @@
 import json
 import inject
 from bottle import request, Bottle, HTTPResponse
-from webapp.services.errors import DataParseException
+from deepfaq.services.errors import DataParseException
 
-from webapp.services.addservice import AddTrainData
+from deepfaq.services.addservice import AddTrainData
 
 add_d = Bottle()
 

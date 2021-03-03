@@ -1,6 +1,6 @@
 import inject
 from inject import Binder
-from webapp.services.deeppavlov_faq_bot.faqbot import FaqBot
+from deepfaq.services.deeppavlov_faq_bot.faqbot import FaqBot
 
 
 def init() -> None:

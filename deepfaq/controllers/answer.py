@@ -2,7 +2,7 @@ import json
 import inject
 from bottle import request, Bottle, HTTPResponse
 
-from webapp.services.getanswerservice import GetAnswer
+from deepfaq.services.getanswerservice import GetAnswer
 
 answer = Bottle()
 

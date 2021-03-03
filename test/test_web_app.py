@@ -4,9 +4,9 @@ import requests
 from bottle import run
 from bottle import Bottle
 from threading import Thread
-from webapp.config import config
-from webapp.controllers.answer import answer
-from webapp.controllers.adddata import add_d
+from deepfaq.config import config
+from deepfaq.controllers.answer import answer
+from deepfaq.controllers.adddata import add_d
 from start_stop_server import MyServer
 
 model_name = "faq"

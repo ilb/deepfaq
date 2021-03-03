@@ -12,8 +12,8 @@ add answers service
 }
 """
 import inject
-from webapp.services.deeppavlov_faq_bot.faqbot import FaqBot
-from webapp.services.errors import DataParseException
+from deepfaq.services.deeppavlov_faq_bot.faqbot import FaqBot
+from deepfaq.services.errors import DataParseException
 
 
 class AddTrainData:
