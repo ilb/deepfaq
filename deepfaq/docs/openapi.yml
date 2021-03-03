@@ -35,15 +35,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/JSONValidationError'
-  /add/:
+  /train/:
     post:
-      summary: Add date for model
-      operationId: add_data
+      summary: train bot by new data
+      operationId: train
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/NewData'
+              $ref: '#/components/schemas/TrainData'
         required: true
 
       responses:
@@ -80,15 +80,15 @@ components:
           title: probability
           type: string
 
-    NewData:
-      title: NewData
+    TrainData:
+      title: TrainData
       required:
         - model
         - faq
       type: object
       properties:
         model:
-          title: answer
+          title: model
           type: string
         faq:
           title: faq

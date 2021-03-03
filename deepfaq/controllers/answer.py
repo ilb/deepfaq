@@ -4,10 +4,10 @@ from bottle import request, Bottle, HTTPResponse
 
 from deepfaq.services.getanswerservice import GetAnswer
 
-answer = Bottle()
+app = Bottle()
 
 
-@answer.post("/")
+@app.post("/answer")
 @inject.autoparams()
 def get_answer(answer_service: GetAnswer) -> HTTPResponse:
     try:

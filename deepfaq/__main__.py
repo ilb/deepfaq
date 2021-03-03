@@ -3,8 +3,7 @@ import sys
 import yaml
 from bottle import Bottle
 from deepfaq.config import config
-from deepfaq.controllers.answer import answer
-from deepfaq.controllers.adddata import add_d
+from deepfaq.controllers import answer, train
 
 from bottle_swagger import SwaggerPlugin
 
@@ -21,8 +20,8 @@ app = Bottle()
 
 def main():
     config.init()
-    app.mount("/webapp/answer/", answer)
-    app.mount("/webapp/add/", add_d)
+    app.mount("/deepfaq", answer.app)
+    app.mount("/deepfaq", train.app)
     app.install(
         SwaggerPlugin(swagger_def, validate_swagger_spec=False, serve_swagger_ui=True, swagger_ui_suburl="/swagger/"))
     sys.exit(

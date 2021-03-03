@@ -5,8 +5,7 @@ from bottle import run
 from bottle import Bottle
 from threading import Thread
 from deepfaq.config import config
-from deepfaq.controllers.answer import answer
-from deepfaq.controllers.adddata import add_d
+from deepfaq.controllers import answer, train
 from start_stop_server import MyServer
 
 model_name = "faq"
@@ -63,8 +62,8 @@ jsonData = {
 def test_add_date_and_ask():
     app = Bottle()
     config.init()
-    app.mount("/webapp/answer/", answer)
-    app.mount("/webapp/add/", add_d)
+    app.mount("/deepfaq", answer.app)
+    app.mount("/deepfaq", train.app)
 
     def begin():
         run(app=app, server=server)
@@ -75,19 +74,19 @@ def test_add_date_and_ask():
     time.sleep(1)
     try:
 
-        r = requests.post(url + '/webapp/answer/')
+        r = requests.post(url + '/deepfaq/answer/')
         assert r.status_code == 450  # parse error
 
-        r = requests.post(url + '/webapp/answer/', json=jsonQuestion)
+        r = requests.post(url + '/deepfaq/answer/', json=jsonQuestion)
         assert r.status_code == 550  # no models yet
 
-        r = requests.post(url + '/webapp/add/')
+        r = requests.post(url + '/deepfaq/train/')
         assert r.status_code == 550  # wrong data add
 
-        r = requests.post(url + '/webapp/add/', json=jsonData)
+        r = requests.post(url + '/deepfaq/train/', json=jsonData)
         assert r.status_code == 200  # add data OK
 
-        r = requests.post(url + '/webapp/answer/', json=jsonQuestion)
+        r = requests.post(url + '/deepfaq/answer/', json=jsonQuestion)
         assert r.status_code == 200
         json_answer = r.json()
         assert json_answer['answer'] == "Во втором отделе нужно взять справку для военкомата, чтобы тебе дали " \

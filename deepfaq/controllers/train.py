@@ -5,12 +5,12 @@ from deepfaq.services.errors import DataParseException
 
 from deepfaq.services.addservice import AddTrainData
 
-add_d = Bottle()
+app = Bottle()
 
 
-@add_d.post("/")
+@app.post("/train")
 @inject.autoparams('faq_bot', 'add_data_service')
-def add_data(add_data_service: AddTrainData) -> HTTPResponse:
+def train(add_data_service: AddTrainData) -> HTTPResponse:
     try:
         json_object = json.load(request.body)
         add_data_service.add_data(json_object)
