@@ -1,5 +1,6 @@
 from functools import lru_cache
 
+import os
 import inject
 from inject import Binder
 from pathlib import Path
@@ -12,6 +13,7 @@ context = AppContext.from_readers([WebXmlReader(Path(__file__).parent.joinpath("
 
 
 def init() -> None:
+    os.environ["DP_SKIP_NLTK_DOWNLOAD"] = "TRUE" # http://docs.deeppavlov.ai/en/master/integrations/settings.html
     inject.configure(build_container)
 
 
