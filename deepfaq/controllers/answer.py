@@ -7,7 +7,7 @@ from deepfaq.services.getanswerservice import GetAnswer
 app = Bottle()
 
 
-@app.post("/answer")
+@app.post("/")
 @inject.autoparams()
 def get_answer(answer_service: GetAnswer) -> HTTPResponse:
     try:

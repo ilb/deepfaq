@@ -1,6 +1,14 @@
+from functools import lru_cache
+
 import inject
 from inject import Binder
+from pathlib import Path
+from pycontext.context import AppContext
+from pycontext.reader import ContextXmlReader, WebXmlReader
+
 from deepfaq.services.deeppavlov_faq_bot.faqbot import FaqBot
+
+context = AppContext.from_readers([WebXmlReader(Path(__file__).parent.joinpath("web.xml"))])
 
 
 def init() -> None:
@@ -8,17 +16,20 @@ def init() -> None:
 
 
 def build_container(binder: Binder) -> Binder:
-    binder.bind(FaqBot, FaqBot(work_dir()))
+    binder.bind(FaqBot, FaqBot(workdir()))
     return binder
 
 
+@lru_cache(1)
 def host() -> str:
-    return "127.0.0.1"
+    return context.get("ru.bystrobank.apps.deepfaq.host")
 
 
+@lru_cache(1)
 def port() -> int:
-    return 5005
+    return context.get("ru.bystrobank.apps.deepfaq.port")
 
 
-def work_dir() -> str:
-    return "../FAQBot_work_dir/"
+@lru_cache(1)
+def workdir() -> str:
+    return context.get("ru.bystrobank.apps.deepfaq.workdir")

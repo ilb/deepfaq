@@ -8,7 +8,7 @@ from deepfaq.services.addservice import AddTrainData
 app = Bottle()
 
 
-@app.post("/train")
+@app.post("/")
 @inject.autoparams('faq_bot', 'add_data_service')
 def train(add_data_service: AddTrainData) -> HTTPResponse:
     try:

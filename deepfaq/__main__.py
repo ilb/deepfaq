@@ -20,10 +20,11 @@ app = Bottle()
 
 def main():
     config.init()
-    app.mount("/deepfaq", answer.app)
-    app.mount("/deepfaq", train.app)
     app.install(
-        SwaggerPlugin(swagger_def, validate_swagger_spec=False, serve_swagger_ui=True, swagger_ui_suburl="/swagger/"))
+        SwaggerPlugin(swagger_def, validate_swagger_spec=False, serve_swagger_ui=True,swagger_ui_suburl="/deepfaq/swagger/")
+    )
+    app.mount("/deepfaq/answer", answer.app)
+    app.mount("/deepfaq/train", train.app)
     sys.exit(
         app.run(
             server="gunicorn",

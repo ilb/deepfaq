@@ -6,7 +6,8 @@ app_dependencies = [
     "inject==4.0.0",
     "requests>=2.0.0",
     "bottle-swagger-2==2.0.8",
-    "deeppavlov~=0.14.0"
+    "deeppavlov~=0.14.0",
+    "ilb-pycontext==2.0.3"
 ]
 
 dev_dependencies = [
