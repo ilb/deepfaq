@@ -18,7 +18,7 @@ dev_dependencies = [
 
 setup(
     name="ilb-deepfaq",
-    version="0.0.2",
+    version="0.0.3",
     description="FAQ bot based on deep learning",
     url="https://git.ilb.ru/ilb.ru/deepfaq",
     author="kvadro1",
