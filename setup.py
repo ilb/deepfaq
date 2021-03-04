@@ -3,6 +3,7 @@ from setuptools import setup, find_packages
 app_dependencies = [
     "bottle==0.12.18",
     "gunicorn==20.0.4",
+    "uvloop==0.14.0", # pin uvloop version which supports Python >=3.5 (required by deeppavlov -> uvicorn)
     "inject==4.0.0",
     "requests>=2.0.0",
     "bottle-swagger-2==2.0.8",
@@ -16,8 +17,8 @@ dev_dependencies = [
 ]
 
 setup(
-    name="deepfaq",
-    version="0.0.1",
+    name="ilb-deepfaq",
+    version="0.0.2",
     description="FAQ bot based on deep learning",
     url="https://git.ilb.ru/ilb.ru/deepfaq",
     author="kvadro1",
