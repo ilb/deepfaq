@@ -10,7 +10,7 @@ from pycontext.reader import ContextXmlReader, WebXmlReader
 from deepfaq.services.deeppavlov_faq_bot.faqbot import FaqBot
 
 context = AppContext.from_readers([
-    ContextXmlReader(),
+    ContextXmlReader("deepfaq"),
     WebXmlReader(Path(__file__).parent.joinpath("web.xml"))
 ])
 

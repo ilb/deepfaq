@@ -8,7 +8,7 @@ app_dependencies = [
     "requests>=2.0.0",
     "bottle-swagger-2==2.0.8",
     "deeppavlov~=0.14.0",
-    "ilb-pycontext==2.0.3"
+    "ilb-pycontext==2.1.0"
 ]
 
 dev_dependencies = [
@@ -18,7 +18,7 @@ dev_dependencies = [
 
 setup(
     name="ilb-deepfaq",
-    version="0.0.3",
+    version="0.0.4",
     description="FAQ bot based on deep learning",
     url="https://git.ilb.ru/ilb.ru/deepfaq",
     author="kvadro1",
