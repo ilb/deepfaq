@@ -1,0 +1,1 @@
+curl -i --cacert /etc/ssl/certs/ourCAbundle.crt --cert ~/.certs/my.p12 https://devel2.net.ilb.ru/deepfaq/train -H "Content-Type: application/json" --data '{"model":"testmodel","faq":[{"q":["How are you?"],"a":"Cool! You?"}]}'
