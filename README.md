@@ -39,3 +39,20 @@ Run package:
 ```
 
 You can check it running on `http://localhost:5005/swagger/`
+
+# Docker
+
+## Run
+```shell script
+sh docker-start.sh
+```
+
+## Stop
+```shell script
+sh docker-stop.sh
+```
+
+## Build or Rebuild
+```shell script
+sh docker-build.sh
+```

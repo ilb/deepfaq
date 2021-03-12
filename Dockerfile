@@ -5,4 +5,4 @@ RUN pip install -e .[dev] \
 && python setup.py sdist bdist_wheel \
 && pip install dist/*.whl
 
-CMD ["webapp"]
+CMD ["deepfaq"]
