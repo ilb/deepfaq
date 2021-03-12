@@ -1,0 +1,9 @@
+# Версия docker-compose
+version: '3.7'
+
+# Список наших сервисов (конетейнеров)
+services:
+  web:
+    build: .
+    ports:
+      - "5005:5005"
