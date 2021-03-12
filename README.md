@@ -46,6 +46,7 @@ You can check it running on `http://localhost:5005/swagger/`
 ```shell script
 sh docker-start.sh
 ```
+You can check it running on `http://localhost:5005/swagger/`
 
 ## Stop
 ```shell script
